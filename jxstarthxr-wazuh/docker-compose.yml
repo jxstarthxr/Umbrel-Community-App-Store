@@ -1,43 +1,43 @@
-version: "4.11"
+version: "3.9"
 
 services:
-  wazuh.manager:
-    image: wazuh/wazuh-manager:latest
-    container_name: wazuh-manager
-    restart: always
+  wazuh-manager:
+    image: wazuh/wazuh-manager:4.11.2
+    restart: unless-stopped
     ports:
-      - "1514:1514/udp"   # For agents
-      - "1515:1515"       # Agent registration
-      - "55000:55000"     # API
+      - "1514:1514/udp"
+      - "1515:1515"
+      - "55000:55000"
     volumes:
-      - ${APP_DATA_DIR}/data:/ossec/data
-  wazuh.indexer:
-    image: wazuh/wazuh-indexer:latest
-    container_name: wazuh-indexer
+      - wazuh_manager_data:/var/ossec/data
+
+  wazuh-indexer:
+    image: wazuh/wazuh-indexer:4.11.2
+    restart: unless-stopped
     environment:
+      - "OPENSEARCH_INITIAL_ADMIN_PASSWORD=${APP_PASSWORD:-admin}"
       - "DISCOVERY_TYPE=single-node"
-      - "BOOTSTRAP_PASSWORD=7^K828ep@j!!p1"
+    ports:
+      - "9200:9200"
     ulimits:
       memlock:
         soft: -1
         hard: -1
-    mem_limit: 1g
-    restart: always
-    ports:
-      - "9200:9200"
+    mem_limit: 2g
     volumes:
-      - ${APP_DATA_DIR}/data:/opensearch/data
-  wazuh.dashboard:
-    image: wazuh/wazuh-dashboard:latest
-    container_name: wazuh-dashboard
+      - wazuh_indexer_data:/usr/share/opensearch/data
+
+  wazuh-dashboard:
+    image: wazuh/wazuh-dashboard:4.11.2
+    restart: unless-stopped
     depends_on:
-      - wazuh.indexer
+      - wazuh-indexer
+    environment:
+      - DASHBOARD_PASSWORD=${APP_PASSWORD:-admin}
+      - OPENSEARCH_HOSTS=https://wazuh-indexer:9200
     ports:
       - "5601:5601"
-    environment:
-      - "OPENSEARCH_HOSTS=https://wazuh-indexer:9200"
-      - "DASHBOARD_PASSWORD=7^K828ep@j!!p1"
-    restart: always
+
 volumes:
-  wazuh_data:
-  indexer_data:
+  wazuh_manager_data:
+  wazuh_indexer_data:
