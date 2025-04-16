@@ -16,9 +16,7 @@ submission: https://github.com/jxstarthxr/jxstarthxr-umbrel-app-store
 repo: https://github.com/jxstarthxr/jxstarthxr-umbrel-app-store/jxstarthxr-wazuh
 support: https://wazuh.com/community/
 gallery:
-  - https://denniskeefe.me/content/images/2024/06/wazuh-banner-para-blog-2361494478.png
-  - https://wazuh.com/wp-content/themes/wazuh-v3/assets/images/home/siem-dashboard.png?ver=1744815409521
-  - https://wazuh.com/wp-content/themes/wazuh-v3/assets/images/home/xdr-dashboard.png?ver=1744815409521
+  - https://media.licdn.com/dms/image/v2/D5612AQHWn2y_zC3TSA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1660201445585?e=2147483647&v=beta&t=ONpmT2KXNe_m7-4MT0tFN0it88-lG-JtSsoDDoO4ef0
 releaseNotes: >-
   Initial release of the Wazuh security monitoring platform for Umbrel.
 dependencies:
