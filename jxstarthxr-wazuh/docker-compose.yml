@@ -10,7 +10,7 @@ services:
       - "1515:1515"       # Agent registration
       - "55000:55000"     # API
     volumes:
-      - wazuh_data:/var/ossec/data
+      - ${APP_DATA_DIR}/data:/ossec/data
   wazuh.indexer:
     image: wazuh/wazuh-indexer:latest
     container_name: wazuh-indexer
@@ -26,7 +26,7 @@ services:
     ports:
       - "9200:9200"
     volumes:
-      - indexer_data:/usr/share/opensearch/data
+      - ${APP_DATA_DIR}/data:/opensearch/data
   wazuh.dashboard:
     image: wazuh/wazuh-dashboard:latest
     container_name: wazuh-dashboard
