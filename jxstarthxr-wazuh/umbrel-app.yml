@@ -1,5 +1,5 @@
 manifestVersion: 1
-id: arthxr-wazuh
+id: jxstarthxr-wazuh
 name: Wazuh
 tagline:
 icon: https://raw.githubusercontent.com/wazuh/wazuh-dashboard/main/public/assets/img/wazuh-logo.svg
@@ -11,9 +11,9 @@ description: >-
 
 developer: Wazuh
 website: https://wazuh.com
-submitter: arthxr
+submitter: jxstarthxr
 submission:
-repo: https://github.com/arthxr/umbrel-wazuh
+repo:
 support: https://wazuh.com/community/
 gallery:
 tagline: Security information and event management (SIEM) platform
