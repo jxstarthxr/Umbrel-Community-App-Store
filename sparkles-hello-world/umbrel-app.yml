@@ -1,30 +1,73 @@
-manifestVersion: 1
-id: sparkles-hello-world
-name: Hello World
-tagline: Replace this tagline with your app's tagline
-icon: https://svgur.com/i/mvA.svg
-category: Development
+id: wazuh
+name: Wazuh
 version: "1.0.0"
-port: 4000
-description: >-
-  Add your app's description here.
+releaseNotes: >
+  Initial release of the Wazuh security monitoring platform for Umbrel.
 
+tagline: Security information and event management (SIEM) platform
+icon: https://raw.githubusercontent.com/wazuh/wazuh-dashboard/main/public/assets/img/wazuh-logo.svg
 
-  You can also add newlines!
+description: >
+  Wazuh is an open-source platform for threat detection, integrity monitoring, incident response, and compliance. This app includes the Wazuh Manager, OpenSearch Indexer, and Dashboard.
 
-developer: Umbrel
-website: https://umbrel.com
-submitter: Umbrel
-submission: https://github.com/getumbrel/umbrel-hello-world-app
-repo: https://github.com/getumbrel/umbrel-hello-world-app
-support: https://github.com/getumbrel/umbrel-hello-world-app/issues
-gallery:
-  - https://i.imgur.com/yyVG0Jb.jpeg
-  - https://i.imgur.com/yyVG0Jb.jpeg
-  - https://i.imgur.com/yyVG0Jb.jpeg
-releaseNotes: >-
-  Add what's new in the latest version of your app here.
+developer: Wazuh
+website: https://wazuh.com
+submitter: YourNameHere
+repo: https://github.com/yourname/umbrel-wazuh
+support: https://wazuh.com/community/
+
 dependencies: []
-path: ""
-defaultUsername: ""
-defaultPassword: ""
+
+port: 5601
+
+path: / # where the app serves content from
+
+deterministicPassword: true
+
+# Docker Compose file for the app
+dockerCompose:
+  version: "3.9"
+  services:
+    wazuh.manager:
+      image: wazuh/wazuh-manager:latest
+      container_name: wazuh-manager
+      restart: always
+      ports:
+        - "1514:1514/udp"
+        - "1515:1515"
+        - "55000:55000"
+      volumes:
+        - wazuh_data:/var/ossec/data
+
+    wazuh.indexer:
+      image: wazuh/wazuh-indexer:latest
+      container_name: wazuh-indexer
+      environment:
+        - DISCOVERY_TYPE=single-node
+        - BOOTSTRAP_PASSWORD=${APP_PASSWORD}
+      ulimits:
+        memlock:
+          soft: -1
+          hard: -1
+      mem_limit: 1g
+      restart: always
+      ports:
+        - "9200:9200"
+      volumes:
+        - indexer_data:/usr/share/opensearch/data
+
+    wazuh.dashboard:
+      image: wazuh/wazuh-dashboard:latest
+      container_name: wazuh-dashboard
+      depends_on:
+        - wazuh.indexer
+      ports:
+        - "5601:5601"
+      environment:
+        - OPENSEARCH_HOSTS=https://wazuh-indexer:9200
+        - DASHBOARD_PASSWORD=${APP_PASSWORD}
+      restart: always
+
+  volumes:
+    wazuh_data:
+    indexer_data:
