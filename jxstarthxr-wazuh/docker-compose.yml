@@ -1,4 +1,4 @@
-version: "3.9"
+version: "4.11.2"
 
 services:
   wazuh-manager:
@@ -10,6 +10,7 @@ services:
       - "55000:55000"
     volumes:
       - wazuh_manager_data:/var/ossec/data
+      - ./config/certs/wazuh-manager:/var/ossec/certs
 
   wazuh-indexer:
     image: wazuh/wazuh-indexer:4.11.2
@@ -26,6 +27,7 @@ services:
     mem_limit: 2g
     volumes:
       - wazuh_indexer_data:/usr/share/opensearch/data
+      - ./config/certs/wazuh-indexer:/usr/share/opensearch/config/certs
 
   wazuh-dashboard:
     image: wazuh/wazuh-dashboard:4.11.2
@@ -37,6 +39,8 @@ services:
       - OPENSEARCH_HOSTS=https://wazuh-indexer:9200
     ports:
       - "5601:5601"
+    volumes:
+      - ./config/certs/wazuh-dashboard:/usr/share/wazuh-dashboard/config/certs
 
 volumes:
   wazuh_manager_data:
