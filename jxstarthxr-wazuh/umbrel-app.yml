@@ -3,7 +3,7 @@ id: jxstarthxr-wazuh
 name: Wazuh
 tagline:
 icon: https://raw.githubusercontent.com/wazuh/wazuh-dashboard/main/public/assets/img/wazuh-logo.svg
-category: Monitoring
+category: networking
 version: "4.11"
 port: 5601
 description: >-
