@@ -6,7 +6,6 @@ icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ5FyVTl89iPc8pjWhP3
 category: networking
 version: "4.11"
 port: 5601
-
 description: >-
   Wazuh is an open-source platform for threat detection, integrity monitoring, incident response, and compliance. This app includes the Wazuh Manager, OpenSearch Indexer, and Dashboard.
 
@@ -14,11 +13,13 @@ developer: Wazuh
 website: https://wazuh.com
 submitter: jxstarthxr
 submission: https://github.com/jxstarthxr/jxstarthxr-umbrel-app-store
-support: https://wazuh.com/community/
 repo: https://github.com/jxstarthxr/jxstarthxr-umbrel-app-store/jxstarthxr-wazuh
+support: https://wazuh.com/community/
+gallery:
 releaseNotes: >-
   Initial release of the Wazuh security monitoring platform for Umbrel.
-
-dependencies: []
-path: /
+dependencies:
+path: ""
 deterministicPassword: true
+defaultUsername: ""
+defaultPassword: ""
