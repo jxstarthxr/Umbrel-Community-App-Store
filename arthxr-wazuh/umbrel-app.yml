@@ -1,6 +1,6 @@
 id: wazuh
 name: Wazuh
-version: "1.0.0"
+version: "4.11"
 releaseNotes: >
   Initial release of the Wazuh security monitoring platform for Umbrel.
 
@@ -12,21 +12,21 @@ description: >
 
 developer: Wazuh
 website: https://wazuh.com
-submitter: YourNameHere
-repo: https://github.com/yourname/umbrel-wazuh
+submitter: arthxr
+repo: https://github.com/arthxr/umbrel-wazuh
 support: https://wazuh.com/community/
 
 dependencies: []
 
 port: 5601
 
-path: / # where the app serves content from
+path: "/wazuh"
 
 deterministicPassword: true
 
 # Docker Compose file for the app
 dockerCompose:
-  version: "3.9"
+  version: "4.11"
   services:
     wazuh.manager:
       image: wazuh/wazuh-manager:latest
