@@ -19,9 +19,6 @@ gallery:
 tagline: Security information and event management (SIEM) platform
 releaseNotes: >-
   Initial release of the Wazuh security monitoring platform for Umbrel.
-
 dependencies: []
 path: ""
 deterministicPassword: true
-defaultUsername: ""
-defaultPassword: ""
