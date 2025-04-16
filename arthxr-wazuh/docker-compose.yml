@@ -1,5 +1,4 @@
 version: "4.11"
-
 services:
   wazuh.manager:
     image: wazuh/wazuh-manager:latest
@@ -11,7 +10,6 @@ services:
       - "55000:55000"     # API
     volumes:
       - wazuh_data:/var/ossec/data
-
   wazuh.indexer:
     image: wazuh/wazuh-indexer:latest
     container_name: wazuh-indexer
@@ -28,7 +26,6 @@ services:
       - "9200:9200"
     volumes:
       - indexer_data:/usr/share/opensearch/data
-
   wazuh.dashboard:
     image: wazuh/wazuh-dashboard:latest
     container_name: wazuh-dashboard
@@ -40,7 +37,6 @@ services:
       - "OPENSEARCH_HOSTS=https://wazuh-indexer:9200"
       - "DASHBOARD_PASSWORD=7^K828ep@j!!p1"
     restart: always
-
 volumes:
   wazuh_data:
   indexer_data:
