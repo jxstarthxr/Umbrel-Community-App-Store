@@ -4,7 +4,7 @@ name: Wazuh
 tagline: Security information and event management (SIEM) platform
 icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ5FyVTl89iPc8pjWhP3RbmNF70psiRrK3JQ&s
 category: networking
-version: "4.11"
+version: "4.11.2"
 port: 5601
 description: >-
   Wazuh is an open-source platform for threat detection, integrity monitoring, incident response, and compliance. This app includes the Wazuh Manager, OpenSearch Indexer, and Dashboard.
