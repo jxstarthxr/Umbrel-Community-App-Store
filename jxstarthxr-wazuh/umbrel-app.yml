@@ -12,14 +12,16 @@ description: >-
 developer: Wazuh
 website: https://wazuh.com
 submitter: jxstarthxr
-submission:
+submission: https://github.com/jxstarthxr/jxstarthxr-umbrel-app-store
 repo:
 support: https://wazuh.com/community/
 gallery:
 tagline: Security information and event management (SIEM) platform
-releaseNotes: >
+releaseNotes: >-
   Initial release of the Wazuh security monitoring platform for Umbrel.
 
 dependencies: []
-path: "/wazuh"
+path: ""
 deterministicPassword: true
+defaultUsername: ""
+defaultPassword: ""
