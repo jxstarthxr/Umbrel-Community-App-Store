@@ -1,4 +1,5 @@
 version: "4.11"
+
 services:
   wazuh.manager:
     image: wazuh/wazuh-manager:latest
