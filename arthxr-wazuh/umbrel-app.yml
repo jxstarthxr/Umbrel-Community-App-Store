@@ -1,24 +1,25 @@
 manifestVersion: 1
 id: arthxr-wazuh
 name: Wazuh
-tagline: 
-version: "4.11"
-category: Monitoring
-releaseNotes: >
-  Initial release of the Wazuh security monitoring platform for Umbrel.
-
-tagline: Security information and event management (SIEM) platform
+tagline:
 icon: https://raw.githubusercontent.com/wazuh/wazuh-dashboard/main/public/assets/img/wazuh-logo.svg
-description: >
+category: Monitoring
+version: "4.11"
+port: 5601
+description: >-
   Wazuh is an open-source platform for threat detection, integrity monitoring, incident response, and compliance. This app includes the Wazuh Manager, OpenSearch Indexer, and Dashboard.
 
 developer: Wazuh
 website: https://wazuh.com
 submitter: arthxr
-submissio:
+submission:
 repo: https://github.com/arthxr/umbrel-wazuh
 support: https://wazuh.com/community/
+gallery:
+tagline: Security information and event management (SIEM) platform
+releaseNotes: >
+  Initial release of the Wazuh security monitoring platform for Umbrel.
+
 dependencies: []
-port: 5601
 path: "/wazuh"
 deterministicPassword: true
