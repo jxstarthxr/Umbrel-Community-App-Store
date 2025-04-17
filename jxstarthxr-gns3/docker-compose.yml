@@ -1,4 +1,4 @@
-version: "2.2.17"
+version: "3.0.4"
 
 networks:
   local-dhcp:
@@ -11,7 +11,7 @@ networks:
 
 services:
   gns3-server:
-    image: registry.cn-shanghai.aliyuncs.com/ncj/gns3:2.2.17
+    image: jsimonetti/gns3-server:3.0.4
     privileged: true
     networks:
       - local-dhcp
@@ -24,7 +24,7 @@ services:
       - dhcp-server
 
   dhcp-server:
-    image: networkboot/dhcpd
+    image: networkboot/dhcpd:1.3.0
     networks:
       - local-dhcp
     init: true
