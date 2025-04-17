@@ -1,24 +1,24 @@
 manifestVersion: 1
-id: jxstarthxr-gns3
-name: GNS3
-tagline: Networking platform
-icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjpOWvPrFVCjDp3p1XeyjVI7FF2HSc35GI-Q&s
+id: jxstarthxr-wazuh
+name: Wazuh
+tagline: Security information and event management (SIEM) platform
+icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ5FyVTl89iPc8pjWhP3RbmNF70psiRrK3JQ&s
 category: networking
-version: "3.0.4"
-port: 49765
+version: "4.11.2"
+port: 5601
 description: >-
-  GNS3 is an open-source platform for networking emulation.
+  Wazuh is an open-source platform for threat detection, integrity monitoring, incident response, and compliance. This app includes the Wazuh Manager, OpenSearch Indexer, and Dashboard.
 
-developer: GNS3
-website: https://gns3.com
+developer: Wazuh
+website: https://wazuh.com
 submitter: jxstarthxr
 submission: https://github.com/jxstarthxr/jxstarthxr-umbrel-app-store
-repo: https://github.com/jxstarthxr/jxstarthxr-umbrel-app-store/jxstarthxr-gns3
-support: https://gns3.com/community/featured
+repo: https://github.com/jxstarthxr/jxstarthxr-umbrel-app-store/jxstarthxr-wazuh
+support: https://wazuh.com/community/
 gallery:
-  - https://media.mcdn.co/embedded/639616d0482b212a9a588754?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9tZWRpYS5tY2RuLmNvL2VtYmVkZGVkLzYzOTYxNmQwNDgyYjIxMmE5YTU4ODc1NCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MzMyMjgzODA2ODZ9fX1dfQ__&Key-Pair-Id=APKAJDKBVMGXNCXPKSSQ&Signature=fPFdg02um1-NUFIZU3dSXBAzgb0KLQOEF4Q0OjxFkJFqLANGwqzh5wcoyt7bXomxwNb6jsopHS9zTWoGV0J3fEWdTJx8jjugo3I7-IOawFLhkcfB4ObAE~3RJb~xOk5vQcwTQGwaUCEa9JIxe~2xOLdP2RTxKmHq0iAQVZfW8FXaT8jObpgU1NmKJ8RZmech6qLccfC9DERmxmAS3rOFa1HNK1JJN1cuWwkViQ4-ESFg9azzVkLa5PaolruSCvsic4eMQAtIHrK6P~LatYD5xf8JdUOYvB01~elB4tXLzNTnBRYh1enXQFYPndPU5K21XBUkT-84DaY2BaTGHy3ecQ__
+  - https://media.licdn.com/dms/image/v2/D5612AQHWn2y_zC3TSA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1660201445585?e=2147483647&v=beta&t=ONpmT2KXNe_m7-4MT0tFN0it88-lG-JtSsoDDoO4ef0
 releaseNotes: >-
-  Initial release of GNS3 for Umbrel.
+  Initial release of the Wazuh security monitoring platform for Umbrel.
 dependencies:
 path: ""
 defaultUsername: ""
