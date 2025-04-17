@@ -5,7 +5,7 @@ tagline: Networking platform
 icon: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjpOWvPrFVCjDp3p1XeyjVI7FF2HSc35GI-Q&s
 category: networking
 version: "3.0.4"
-port: 49765
+port: 3080
 description: >-
   GNS3 is an open-source platform for networking emulation.
 
