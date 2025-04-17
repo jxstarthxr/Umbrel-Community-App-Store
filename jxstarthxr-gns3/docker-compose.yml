@@ -1,17 +1,33 @@
-version: "3.0.4"
+version: "2.2.17"
+
+networks:
+  local-dhcp:
+    external: false
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.5.0.0/24
+          gateway: 172.5.0.1
 
 services:
-  gns3:
-    image: jsimonetti/gns3-server:3.0.4
-    container_name: gns3-server:3.0.4
-    ports:
-      - "3080:3080"     # GNS3 API port
-      - "5000-5005:5000-5005" # Optional range for UDP/TCP communication
-    volumes:
-      - gns3_data:/data
-      - /lib/modules:/lib/modules:ro
+  gns3-server:
+    image: registry.cn-shanghai.aliyuncs.com/ncj/gns3:2.2.17
     privileged: true
-    restart: unless-stopped
+    networks:
+      - local-dhcp
+    ports:
+      - "3080:3080" # API Port
+      - "5000-5050:5000-5050" # For Telnet
+    volumes:
+      - ./data:/root/GNS3
+    depends_on:
+      - dhcp-server
 
-volumes:
-  gns3_data:
+  dhcp-server:
+    image: networkboot/dhcpd
+    networks:
+      - local-dhcp
+    init: true
+    command: eth0
+    volumes:
+      - ./dhcp-config:/data
