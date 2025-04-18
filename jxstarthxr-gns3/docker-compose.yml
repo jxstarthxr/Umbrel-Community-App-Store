@@ -12,8 +12,6 @@ services:
       - gns3_data:/root/GNS3
       - /lib/modules:/lib/modules:ro
     environment:
-      - GNS3_USER=admin
-      - GNS3_PASSWORD=admin
     restart: unless-stopped
     networks:
       - gns3net
