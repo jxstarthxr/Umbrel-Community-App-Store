@@ -18,7 +18,7 @@ services:
     networks:
       - gns3net
 volumes:
-  gns3_data: null
+  gns3_data:
 networks:
   gns3net:
     driver: bridge
